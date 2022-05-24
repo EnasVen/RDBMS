@@ -12,6 +12,17 @@ DBMS有以下5種，其中NoSQL與RDB為目前企業主流使用。
 2. 處理元件 : 一組運算式用來操作資料結構
 3. 完整性元件 : 確保資料正確與一致的法則
 
+# Primary
+每一筆紀錄會有一個唯一的辨識值(UID)，用來代表table的主鍵值(Primary Key)。  
+PK必須唯一，不可重複。  
+RDBMS並無規定每一張table都要有PK。  
+設定PK可以讓查詢的速度變快。
+
+# Foreign Key
+child table透過FK來關連到parent table。  
+FK會參考到另一張table的PK。  
+child 的 FK欄位 = parent 的 PK欄位  
+
 # 關聯表
 關聯表(relation)可視為一個二維表格，用來儲存實體或關係資料的地方。  
 關聯表由行(Column)列(Row)組成，在資料庫領域我們通常將col稱為關聯表的attribute(屬性)；而row稱為record(資料錄)。  
@@ -54,5 +65,21 @@ SQL指令分為3類:
   - 例如: COMMIT TRANSACTION
 2. DML(Data Query Language):交易資料查詢語言
   - 例如: SELECT
+
+# SQL 撰寫規則
+1. 不區分大小寫
+  - 關鍵字通常使用大寫
+  - table name和attribute name通常為小寫
+2. 可寫成一行或多行
+  - 不必像Python一樣有固定的indentation
+3. 以;作為敘述結束符號
+
+# 命名規則
+1. 必須以文字開頭
+2. 字元長度最多為128
+3. 只能包含(A-Z , a-z , 0~9 , _ , $)
+4. 不可使用系統關鍵字
+5. 不可與同一個schema所命名的其他物件同名
+6. 同一張table下的attribute name不可重複
 
 
