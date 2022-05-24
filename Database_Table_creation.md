@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXIST db01;
 ```
 上面兩列的指令差異在於直接創建DB的話，如果以存在同名DB會報錯；IF NOT EXIST 則不會。
 
-# 資料表檢視
+# 資料庫檢視
 ```
 SHOW DATABASES;
 ```
