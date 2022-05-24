@@ -45,3 +45,8 @@ col_name data_type [attributes] [constraints]
 SHOW TABLES;
 SHOW TABLE STATUS [FROM|IN db_name];
 ```
+
+# 查看表格欄位設計
+```
+DESC table_name;
+```
