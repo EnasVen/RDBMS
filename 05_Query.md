@@ -19,3 +19,14 @@ SELECT DATE_SUB("2017-06-15", INTERVAL 10 DAY);
 ```
 SELECT 17/5 , 50 DIV 9 , 41%8 , 11*NULL;
 ```
+
+# 別名
+運算或選取的欄位名稱可透過AS關鍵字重新賦予新名稱:  
+```
+SELECT col AS abc , 50+5 AS 'result today' from table_name;
+```
+須注意別名如果有空白，要加上''作為字串使用!(中文建議也加上字串符號)  
+
+# 字串處理
+字串可以透過以下關鍵字處理:  
+1. SUBSTRING
