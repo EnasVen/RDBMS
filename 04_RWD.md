@@ -16,6 +16,8 @@ UPDATE table_name
 SET col = v1 [, col2 = v2]
 [WHERE 條件式];
 ```
+注意UPDATE和ALTERE TABLE使用方式不同:  
+UPDATE用於修改資料內容，不更動表格結構；ALTER TABLE用於修改表格的結構。  
 
 # 刪除資料
 刪除現有資料可用以下語法:  
