@@ -77,3 +77,18 @@ CURDATE()與CURTIME()可以獲得現在的日期、時間。
 SELECT ADDDATE(CURDATE() , 5); -- 預設單位DAY --
 SELECT SUBDATE(CURDATE() , INTERVAL 5 HOUR);
 ```
+
+YEAR()、MONTH()與DAY()可回傳年月日的INT數值:  
+```
+SELECT * , YEAR(date_col) AS yr FROM table_name;
+```
+
+計算時間差異可以使用DATEDIFF()來獲得(以天數為單位):  
+```
+SELECT DATEDIFF(date1 , date2) FROM table_name;
+
+# 消除重複
+
+```
+SELECT [ALL|DISTINCT] col_name FROM table_name;
+```
