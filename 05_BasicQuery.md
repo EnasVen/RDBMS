@@ -58,6 +58,28 @@ SELECT CHAR_LENGTH('蘋果好吃888') AS 'len';
 SELECT empno + '+++' + deptno FROM employee;
 ```
 
+6. UPPER() LOWER() : 大小寫轉換
+```
+SELECT UPPER(col_name) FROM tbl;
+```
+7. CHARINDEX() : 尋找特定字元出現的位置 (MS SQL)
+```
+SELECT CHARINDEX('a' , name) FROM tbl;
+```
+8. REPLACE() : 替代字串
+```
+SELECT replace(deptno , 1 , 9) FROM employee;
+```
+9. REVERSE() : 反轉字串
+```
+SELECT REVERSE(name) FROM employee;
+```
+10. RTRIM() : 去除字串空白
+```
+SELECT rtrim(salary) FROM employee;
+```
+
+
 # 日期處理
 SYSDATE()與NOW()可以回傳當前時間，但用途不同:  
 SYSDATE()如果呼叫多次，每次都會取最新的時間；而NOW()只會存取第一次呼叫的時間!  
