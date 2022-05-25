@@ -56,3 +56,24 @@ SELECT CHAR_LENGTH('蘋果好吃888') AS 'len';
 ```
 SELECT empno + '+++' + deptno FROM employee;
 ```
+
+# 日期處理
+SYSDATE()與NOW()可以回傳當前時間，但用途不同:  
+SYSDATE()如果呼叫多次，每次都會取最新的時間；而NOW()只會存取第一次呼叫的時間!  
+```
+SELECT SYSDATE() , SLEEP(2) , SYSDATE();
+SELECT NOW() , SLEEP(2) , NOW();
+```
+
+INTERVAL關鍵字可以將時間做平移，單位可以是YEAR/QUARTER/MONTH/DAY/HOUR/MINUTE/SECOND:  
+```
+SELECT SYSDATE() + interval 5 day;
+SELECT SYSDATE() - interval 10 month;
+```
+
+CURDATE()與CURTIME()可以獲得現在的日期、時間。  
+前面的DATE_SUB或DATE_ADD也可以使用下面的寫法來達成同樣目的(預設是day作單位，要使用其他單位則必須使用INTERVAL關鍵字):  
+```
+SELECT ADDDATE(CURDATE() , 5); -- 預設單位DAY --
+SELECT SUBDATE(CURDATE() , INTERVAL 5 HOUR);
+```
