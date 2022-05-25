@@ -92,3 +92,4 @@ SELECT DATEDIFF(date1 , date2) FROM table_name;
 ```
 SELECT [ALL|DISTINCT] col_name FROM table_name;
 ```
+注意若欄位內有null，則DISTINCT後會包含NULL!
