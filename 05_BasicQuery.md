@@ -97,8 +97,11 @@ SELECT DATEDIFF(date1 , date2) FROM table_name;
 ```
 SELECT [ALL|DISTINCT] col_name FROM table_name;
 ```
-2. CASE WHEN ELSE:
+2. CASE WHEN ELSE / IF:
   - 可完成多種條件判斷的語法
+```
+SELECT * , a*(IF b <80 , 9 , -9) 'c' FROM table_name;
+```
 ```
 SELECT * , 
 CASE
@@ -153,4 +156,10 @@ SELECT a,b,c FROM employee ORDER BY 3 -- 使用第3個欄位來排序 --
 須注意欄位別名在排序的時候不能加字串符號:
 ```
 SELECT a,b,c as 'C' FROM employee ORDER BY 'C' -- 這樣寫是錯的! -- 
+```
+
+5. LIMIT : 為MySQL才有的排序功能，在MsSQL內則為TOP N [WITH EVEN] 
+```
+SELECT * FROM tbl LIMIT 3;
+SELECT * FROM tbl LIMIT 5,3; -- 跳過前5筆資料後取3筆 --
 ```
