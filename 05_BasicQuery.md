@@ -120,17 +120,36 @@ WHERE內可使用以下特殊運算子:
 SELECT * FROM tbl WHERE col|expr BETWEEN v1 AND v2;
 ```
 > IN(set) : 指定欄位需落在set內  
-> ```
+```
 SELECT * FROM tbl WHERE col|expr IN (v1,v2,v3,...);
 ```
 上述IN後面的set也可以放入select結果，稱為子查詢。  
 > IS NULL / IS NOT NULL : 判斷是否為空  
 ```
-SELECT * FROM tbl WHERE col IS [NOT] NULL;
+SELECT * FROM tbl WHERE col IS NULL;
 ```
 > LIKE : 包含某字串的pattern，以%辨識  
 ```
-SELECT * FROM tbl WHERE col LIKE '%ABC%' [ESCAPE 'pig'];
+SELECT * FROM tbl WHERE col LIKE '%ABC%' [ESCAPE '/']; -- 指定跳脫字元 --
+SELECT * FROM tbl WHERE col LIKE '%ABC_' -- 指定包含ABC字串， _代表其後仍有字元 --
+SELECT * FROM tbl WHERE col LIKE '%ABC\_' -- 以跳脫字元處理_，讓這個底線成為判斷文字 --
 ```
-
-4. 
+> AND / OR / NOT : 邏輯運算子，用法同Python
+```
+SELECT * FROM tbl WHERE colA IS NULL AND  colB <= 660;
+SELECT * FROM tbl WHERE col IS NOT NULL;
+SELECT * FROM tbl WHERE col NOT LIKE '%ABC%';
+SELECT * FROM tbl WHERE col|expr NOT BETWEEN v1 AND v2;
+SELECT * FROM employee where deptno IS NOT NULL AND NOT EXISTS (select * from department where salary > 70000);
+```
+4. ORDER BY ; 根據欄位做單一或多重排序
+```
+SELECT a,b,c FROM employee ORDER BY a,b DESC; -- 只會對b排序，a仍為預設ASC --
+SELECT a,b,c FROM employee ORDER BY a DESC , b DESC; -- 兩者都為降冪排序 --
+SELECT a,b,c FROM employee ORDER BY c*50 -- 使用運算式排序 --
+SELECT a,b,c FROM employee ORDER BY 3 -- 使用第3個欄位來排序 --
+```
+須注意欄位別名在排序的時候不能加字串符號:
+```
+SELECT a,b,c as 'C' FROM employee ORDER BY 'C' -- 這樣寫是錯的! -- 
+```
