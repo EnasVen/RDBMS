@@ -29,4 +29,30 @@ SELECT col AS abc , 50+5 AS 'result today' from table_name;
 
 # 字串處理
 字串可以透過以下關鍵字處理:  
-1. SUBSTRING
+1. SUBSTRING({string | col},pos[,len]) : 擷取部分字串，如果pos值為正，則從左邊開始
+```
+SELECT SUBSTRING(text_col , 1 2) FROM table_name;
+SELECT SUBSTRING('DAVID' , 1 2);
+SELECT SUBSTRING('THIS IS ONE' , -5);
+
+```
+2. CONCAT(str1 , str2 [, ...]) : 串接字串
+```
+SELECT CONCAT(colA , '++' , colB) FROM employee;
+```
+3. LENGTH(str) : 字串長度佔多少個byte
+```
+SELECT LENGTH('蘋果好吃888') AS 'len';
+```
+上述例子會回傳15!(中文字=3byte)
+
+4. CHAR_LENGTH(str) : 總共幾個字元(中英文都算一個字)
+```
+SELECT CHAR_LENGTH('蘋果好吃888') AS 'len';
+```
+上述例子會回傳7!(中英文都算1個字元)
+
+5. (MSSQL) Literal Char String : 直接用加號組合字串
+```
+SELECT empno + '+++' + deptno FROM employee;
+```
