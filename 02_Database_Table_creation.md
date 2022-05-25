@@ -51,3 +51,8 @@ SHOW TABLE STATUS [FROM|IN db_name];
 ```
 DESC table_name;
 ```
+
+# (MSSQL) 查詢表格的所有欄位名稱/資料型態
+```
+EXEC  sp_columns  departments
+```
