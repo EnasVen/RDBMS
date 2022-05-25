@@ -109,5 +109,28 @@ CASE
 FROM table_name
 ```
 3. WHERE:
-  - 
+  - 在SELECT後加入WHERE來做進階篩選。
+```
+SELECT *|[ALL|DISTINCT] col_name | expr , ... FROM table_name
+[WHERE conditions]
+```
+WHERE內可使用以下特殊運算子:
+> BETWEEN...AND : 指定欄位落在特定數值範圍內  
+```
+SELECT * FROM tbl WHERE col|expr BETWEEN v1 AND v2;
+```
+> IN(set) : 指定欄位需落在set內  
+> ```
+SELECT * FROM tbl WHERE col|expr IN (v1,v2,v3,...);
+```
+上述IN後面的set也可以放入select結果，稱為子查詢。  
+> IS NULL / IS NOT NULL : 判斷是否為空  
+```
+SELECT * FROM tbl WHERE col IS [NOT] NULL;
+```
+> LIKE : 包含某字串的pattern，以%辨識  
+```
+SELECT * FROM tbl WHERE col LIKE '%ABC%' [ESCAPE 'pig'];
+```
+
 4. 
