@@ -7,6 +7,7 @@ SELECT {* | expr | col[別名] , ... | DISTINCT col} FROM table_name
 [ORDER BY col_name]
 [LIMIT [offest.] row_count];
 ```
+須注意運算式expr後面一定要給alias!!  
 
 # 算術運算子
 基礎四則運算與一般語言相同，須注意求商為div；求餘數為%。  
@@ -86,10 +87,27 @@ SELECT * , YEAR(date_col) AS yr FROM table_name;
 計算時間差異可以使用DATEDIFF()來獲得(以天數為單位):  
 ```
 SELECT DATEDIFF(date1 , date2) FROM table_name;
+```
 
-# 消除重複
-
+# 條件查詢
+在SELECT語法中加入條件即為條件查詢:  
+1. 消除重複: 
+  - 注意若欄位內有null，則DISTINCT後會包含NULL!
+  - 若DISTINCT後面有2個以上欄位，則查找相異組合
 ```
 SELECT [ALL|DISTINCT] col_name FROM table_name;
 ```
-注意若欄位內有null，則DISTINCT後會包含NULL!
+2. CASE WHEN ELSE:
+  - 可完成多種條件判斷的語法
+```
+SELECT * , 
+CASE
+  WHEN colA > 100 THEN 'A'
+  WHEN colA BETWEEN 70 AND 99 THEN 'B'
+  ELSE 'C'
+ END 'casewhen_Col'
+FROM table_name
+```
+3. WHERE:
+  - 
+4. 
