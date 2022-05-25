@@ -133,6 +133,7 @@ SELECT * FROM tbl WHERE col IS NULL;
 SELECT * FROM tbl WHERE col LIKE '%ABC%' [ESCAPE '/']; -- 指定跳脫字元 --
 SELECT * FROM tbl WHERE col LIKE '%ABC_' -- 指定包含ABC字串， _代表其後仍有字元 --
 SELECT * FROM tbl WHERE col LIKE '%ABC\_' -- 以跳脫字元處理_，讓這個底線成為判斷文字 --
+SELECT * FROM tbl WHERE col REGEXP '^2.*0$'; -- 以正規表達處理 --
 ```
 > AND / OR / NOT : 邏輯運算子，用法同Python
 ```
@@ -142,7 +143,7 @@ SELECT * FROM tbl WHERE col NOT LIKE '%ABC%';
 SELECT * FROM tbl WHERE col|expr NOT BETWEEN v1 AND v2;
 SELECT * FROM employee where deptno IS NOT NULL AND NOT EXISTS (select * from department where salary > 70000);
 ```
-4. ORDER BY ; 根據欄位做單一或多重排序
+4. ORDER BY ; 根據欄位做單一或多重排序，預設升冪排序ASC，降冪排序則需使用DESC關鍵字。
 ```
 SELECT a,b,c FROM employee ORDER BY a,b DESC; -- 只會對b排序，a仍為預設ASC --
 SELECT a,b,c FROM employee ORDER BY a DESC , b DESC; -- 兩者都為降冪排序 --
