@@ -1,7 +1,7 @@
 # 資料庫建置
 ```
 CREATE DATABASE db01;
-CREATE DATABASE IF NOT EXIST db01;
+CREATE DATABASE [IF NOT EXIST] db01;
 ```
 上面兩列的指令差異在於直接創建DB的話，如果以存在同名DB會報錯；IF NOT EXIST 則不會。
 
@@ -31,6 +31,7 @@ tel CHAR(20)
 )
 
 ```
+PK可以寫在欄位定義後面，也可獨立寫在最後一列。  
 上面為創建資料表的範例，總體來說語法可歸納如下:  
 ```
 CREATE TABLE table_ame(
