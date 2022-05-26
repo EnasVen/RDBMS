@@ -53,6 +53,8 @@ UPDATE用於修改資料內容，不更動表格結構；ALTER TABLE用於修改
 DELETE [FROM] table_name
 [WHERE 條件式];
 ```
+注意刪除也可以使用subquery，並且需要關閉預設值才能動作!  
+
 
 刪除所有資料可使用truncate:  
 ```
