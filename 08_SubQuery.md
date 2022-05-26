@@ -40,8 +40,8 @@ WHERE e = 100;;
 ```
 
 ```
--- 放在 FROM 區(運算1次)  --
-SELECT col ,  ROUND(d*5/t.total)
-FROM tbl , (SELECT SUM(b) 'total' FROM tbl WHERE conditions) t
+-- 放在 FROM 區(運算1次+多重命名)  --
+SELECT col ,  ROUND(d*5/t.)
+FROM tbl , (SELECT a,b,c FROM tbl WHERE conditions) AS t (A,B,C)
 WHERE e=100;;
 ```
