@@ -20,9 +20,49 @@ WHERE   deptno = 100;
 ```
 MySQL內沒有#功能，只能預先建立TABLE再INSERT INTO。  
 
-#
+# (MS SQL) PIVOT/UNPIVOT
+提供長寬資料轉換，類似樞紐分析表，或R語言的gather、reshape。
+```
+-- PIVOT --
+SELECT 運算後需要的欄位 FROM 來源資料表名稱
+PIVOT (彙總函數) FOR pivot欄位 
+IN (欄位列表) 別名
+WHERE 條件式
 
+-- UNPIVOT --
+SELECT 運算後需要的欄位 FROM 來源資料表名稱
+PIVOT (彙總函數) FOR unpivot欄位 
+IN (欄位列表) 別名
+WHERE 條件式
+```
 
+# CTE (Common Table Expression)
+定義一個 table expression，給予一個暫時名字，讓使用者在查詢時可以多次使用，不用產生永久的View。  
+```
+WITH tbl_name AS (SELECT ...),
+tbl_name AS (SELECT ...)
+SELECT 欄位 FROM 某個tbl_name;
+
+```
+
+# EXISTS
+子查詢回傳1個以上的record則為TRUE，透過EXISTS可替換IN的子查詢，並可搭配NOT關鍵字。  
+```
+SELECT * FROM WHERE EXISTS (SELECT ...);
+```
+
+# ROLLUP / CUBE / GROUPING
+產生累計值的record，例如:計算小結。  
+CUBE是GROUP BY語法的延伸，可以產生更多小計的交叉運算，比ROLLUP產生更細的小結。
+GROUPING回傳0或1，小結record則回傳1，用於協助使用者了解每一筆小計是如何產生。  
+```
+SELECT [column] | group_function(column) , GROUPING(expr) ...
+FROM tbl
+[WHERE conditions]
+[GROUP BY [ROLLUP|CUBE] group_by_expression]
+[HAVING having_expression]
+[ORDER BY column]
+```
 
 
 
