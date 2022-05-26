@@ -1,12 +1,24 @@
 # 新增資料
 將record新增到表格內的語法如下:
 ```
-INSERT INTO table_name[(col1 [, col2 , ...])] VALUES(v1 [, v2 , ...])
+INSERT INTO table_name[(col1 [, col2 , ...])] VALUES (v1 [, v2 , ...])
 ```
 新增可以寫入完整欄位或是部分欄位。  
 如果要使用DEFAULT值來新增:  
 ```
 INSERT INTO table_name(col1 , col2) VALUES(DEFAULT , DEFAULT)
+```
+
+須注意若給了colname，則VALUE必須要有相應數量的值，否則最好不寫，直接給table name:
+```
+INSERT INTO tbl(a,b,c) VALUES (a1 , b1 , c1);
+INSERT INTO tbl VALUES (a1,b1,NULL)
+INSERT INTO tbl(a,b) VALUES (a1,b1)
+```
+
+同時新增多筆record: 
+```
+INSERT INTO tbl(a,b,c) VALUES (a1 , b1 , c1) , (a2 , b2 , c2);
 ```
 
 # 修改資料
