@@ -27,11 +27,35 @@ column ... ,
 
 CONSTRAINT有以下關鍵字:  
 1. DEFAULT
-  - 
+  - 新增資料時，如果該欄位沒有給值，會以DEFAULT值代入
+  - DEFAULT value 只能是 literal value，不能是expr或者函數
+  - 只能以column level新增
+```
+col datatype DEFAULT value
+```
+如果創建表格的時候沒有給DEFAULT value，則INSERT/UPDATE呼叫DEFAULT時會給NULL
+```
+INSERT INTO tbl VALUES (x,y,DEFAULT);
+-- --
+UPDATE tbl 
+SET a = DEFAULT
+WHERE c = c1;
+```
+
 2. CHECK
+  - 用來檢查欄位是否在值域內
+  - 欄位值可以是NULL
+  - 如果要設定2個欄位以上，需要以table level設置
+```
+CREATE TABLE x (
+col1 INT CHECK (col1 >= 55)
+col2 INT 
+)
+```
 3. UNIQUE
 4. PRIMARY KEY
 5. FOREIGN KEY
 6. NOT NULL
+7. AUTO_INCREMENT
 
 
