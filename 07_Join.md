@@ -29,6 +29,24 @@ FROM table_name1
 INNER JOIN table_name2 
 USING (column_name);
 ```
+也可以用WHERE+AND達成目的(但不建議，因為WHERE是用來篩選的，要串接應使用JOIN函數!):
+``` 
+
+-- 3表個串接 --
+SELECT a.cola , b.colb , c.colc 
+FROM tbl a , tbl b , tbl c 
+WHERE a.x = b.x AND b.y = c.y;
+```
+上面3表格串接使用JOIN寫法如下:  
+```
+SELECT a.cola , b.colb , c.colc 
+FROM tbl a JOIN tbl b
+ON a.x = b.x 
+JOIN tbl c 
+ON b.y = c.y;
+```
+
+
 3. LEFT/RIGHT JOIN : 保留左/右方資料，串接和右/左方有交集的部分
 ```
 SELECT table_column1, table_column2...
