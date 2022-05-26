@@ -21,6 +21,13 @@ INSERT INTO tbl(a,b) VALUES (a1,b1)
 INSERT INTO tbl(a,b,c) VALUES (a1 , b1 , c1) , (a2 , b2 , c2);
 ```
 
+也可以使用SELECT的方式新增資料，但注意不可以使用VALUES關鍵字:
+```
+INSERT INTO tbl1 
+SELECT a,b,c FROM tbl2 WHERE d=xxx;
+```
+但是當欄位不盡相同時，就必須在被insert的table後面附上指定欄位了!  
+
 # 修改資料
 修改table內的資料，其語法如下:  
 ```
