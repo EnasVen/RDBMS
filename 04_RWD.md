@@ -36,6 +36,13 @@ SET col = v1 [, col2 = v2]
 [WHERE 條件式];
 ```
 WHERE如果不給的話，整張資料表的相關record都會被改動。
+需要關閉預設值才能這樣改!  
+```
+SET SQL_SAFE_UPDATES = 0; --打開權限 --
+SET SQL_SAFE_UPDATES = 1;
+UPDATE    emp_copy1
+SET       hiredate = CURDATE();
+```
 
 注意UPDATE和ALTERE TABLE使用方式不同:  
 UPDATE用於修改資料內容，不更動表格結構；ALTER TABLE用於修改表格的結構。  
