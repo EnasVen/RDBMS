@@ -31,4 +31,16 @@ FROM tbl
 WHERE c > ALL( select c from tbl WHERE condition);
 ```
 
+# 不同位置的子查詢
+```
+-- 放在 SELECT 區(運算較多次)  --
+SELECT col , ROUND(d*5 / (SELECT SUM(b) FROM tbl WHERE conditions))
+FROM tbl
+WHERE e = 100;;
+```
 
+-- 放在 FROM 區(運算1次)  --
+SELECT col ,  ROUND(d*5/t.total)
+FROM tbl , (SELECT SUM(b) 'total' FROM tbl WHERE conditions) t
+WHERE e=100;;
+```
