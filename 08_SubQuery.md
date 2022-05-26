@@ -39,6 +39,7 @@ FROM tbl
 WHERE e = 100;;
 ```
 
+```
 -- 放在 FROM 區(運算1次)  --
 SELECT col ,  ROUND(d*5/t.total)
 FROM tbl , (SELECT SUM(b) 'total' FROM tbl WHERE conditions) t
