@@ -108,6 +108,3 @@ ADD CONSTRAINT `emp1_deptno_fk`
 ```
 col_name datatype NOT NULL
 ```
-# AUTO_INCREMENT
-用於自動欄位編號
-
